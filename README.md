@@ -1,4 +1,4 @@
-# frontend
+# kyWeb
 
 ## Project setup
 ```
