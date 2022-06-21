@@ -20,27 +20,10 @@ export default {
 	async mounted() {
 		this.loaded = false
 
-		try {
-			const test = await fetch('http://localhost:3000')
-			console.log(test)
-			const { userlist } = await fetch('http://localhost:3000/fake-data')
-			console.log(userlist)
-			this.chartdata = userlist
-			this.chartData = {
-				labels: ['January', 'February', 'March'],
-				datasets: [
-					{
-						label: 'Data One',
-						backgroundColor: '#f87979',
-						data: [40, 30, 12]
-					}
-				]
-			}
-
-			this.loaded = true
-		} catch (e) {
-			console.error(e)
-		}
+		const userlist = await fetch('http://localhost:3000/fake-data')
+		const data = await userlist.json()
+		this.chartData = data
+		this.loaded = true
 	}
 }
 </script>
