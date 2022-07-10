@@ -38,7 +38,7 @@ export default {
         }
     }),
     async mounted() {
-        const userlist = await fetch('http://localhost:3000/fake-data')
+        const userlist = await fetch('/api/graph')
         const data = await userlist.json()
 
         // Convert scores into a rolling average
